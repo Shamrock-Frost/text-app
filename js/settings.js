@@ -10,10 +10,10 @@ function Settings() {
     storageKeys['settings-' + key] = this.settings_[key];
   }
   // Can be changed to chrome.storage.local.
-  this.storage_ = chrome.storage[Settings.AREA];
-  chrome.storage.onChanged.addListener(this.onChanged_.bind(this));
-  chrome.runtime.onInstalled.addListener(this.removeOldSettings_.bind(this));
-  this.storage_.get(storageKeys, this.getSettingsCallback_.bind(this));
+  this.storage_ = localStorage;//chrome.storage[Settings.AREA];
+  window.addEventListener('storage', this.onChanged_.bind(this));//chrome.storage.onChanged.addListener(this.onChanged_.bind(this));
+  //DOESNT SEEM NECESSARY: chrome.runtime.onInstalled.addListener(this.removeOldSettings_.bind(this));
+  this.getSettingsCallback_.bind(this)(this.storage_.getItem(storageKeys));
 }
 
 /**
@@ -62,7 +62,7 @@ Settings.prototype.getAll = function() {
 Settings.prototype.set = function(key, value) {
   var item = {};
   item['settings-' + key] = value;
-  this.storage_.set(item);
+  this.storage_.setItem('settings-' + key, value);//////
   // this.settings_ will be updated in onChanged_ to keep them in sync with
   // storage.
 };

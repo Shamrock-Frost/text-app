@@ -154,7 +154,7 @@ Tabs.prototype.chooseEntry = function(params, callback, opt_oncancel) {
  */
 Tabs.prototype.chooseEntries = function(params, callback, opt_oncancel) {
   params.acceptsMultiple = true;
-  chrome.fileSystem.chooseEntry(
+  /*chrome.fileSystem.chooseEntry(
       params,
       function(entries) {
         if (entries) {
@@ -166,7 +166,7 @@ Tabs.prototype.chooseEntries = function(params, callback, opt_oncancel) {
           if (opt_oncancel)
             opt_oncancel();
         }
-      });
+      });*/
 };
 
 Tabs.prototype.getTabById = function(id) {

@@ -77,7 +77,7 @@ WindowController.prototype.maximize_ = function() {
 };
 
 WindowController.prototype.setAlwaysOnTop = function(isAlwaysOnTop) {
-  window.chrome.app.window.current().setAlwaysOnTop(isAlwaysOnTop);
+  //window.chrome.app.window.current().setAlwaysOnTop(isAlwaysOnTop);
 };
 
 WindowController.prototype.toggleSidebar_ = function() {
@@ -148,7 +148,7 @@ WindowController.prototype.resizeFinish_ = function(e) {
 };
 
 WindowController.prototype.onError_ = function(event) {
-  var message = event.originalEvent.message;
-  var errorStack = event.originalEvent.error.stack;
-  this.analytics_.reportError(message, errorStack);
+  //var message = event.originalEvent.message;
+  //var errorStack = event.originalEvent.error.stack;
+  //this.analytics_.reportError(message, errorStack);
 };
