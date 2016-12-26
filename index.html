@@ -4,187 +4,181 @@
   <title>Text</title><!---->
   <script>//var chrome = {getMessage: ()=>1, runtime:{getManifest:()=>({version:1}),onInstalled:{addListener:()=>1}},storage:{onChanged:{addListener:()=>1},sync: {}}};chrome.i18n = chrome;chrome.storage.sync.get = ()=>{}</script>
   <script>function Analytics(){this.setEnabled = function(){};this.reportSettings = function(){};};
-  var chrome = {fileSystem:{getDisplayPath:()=>{}},i18n: {
-    getMessage: function(key) {
-      let a =  LINUSGLOBALMSGS[key]?LINUSGLOBALMSGS[key].message:'LINUSERROR';
-      //debugger;
-     // if (key=='defaultThemeOption')a='Default';
-     // if (key=='dightThemeOption')
-      return a;
-    }}, runtime: {
-      getBackgroundPage: function(cb) {
-        cb({background: {
-          onWindowReady: console.log.bind(console)
-        }
-      });}}};
+  var chrome = { fileSystem: {getDisplayPath:()=>{}}, i18n: {
+    getMessage: key => LINUSGLOBALMSGS[key] ? LINUSGLOBALMSGS[key].message : 'LINUSERROR';
+    }, runtime: {
+      getBackgroundPage: function(callback) {
+        callback({ background: { onWindowReady: console.log.bind(console) } });
+    }}};
   var LINUSGLOBALMSGS = {
-  "appDesc": {
-    "message": "A text editor for ChromeOS and Chrome.",
-    "description":"The description of the application, displayed in the web store."
-  },
-  "fileMenuNew": {
-    "message": "New",
-    "description":"The text of the File Menu 'New'."
-  },
-  "fileMenuOpen": {
-    "message": "Open",
-    "description":"The text of the File Menu 'Open'."
-  },
-  "fileMenuSave": {
-    "message": "Save",
-    "description":"The text of the File Menu 'Save'."
-  },
-  "fileMenuSaveas": {
-    "message": "Save as",
-    "description":"The text of the File Menu 'Save as'."
-  },
-  "menuOpenSettings": {
-    "message": "Settings",
-    "description":"The text of the Menu to open settings'."
-  },
-  "menuSettings": {
-    "message": "Settings",
-    "description":"The text of the Menu 'Settings'."
-  },
-  "fontsizeSetting": {
-    "message": "Font size",
-    "description":"The text of the settings 'Font size'."
-  },
-  "fontsizeTooltip": {
-    "message": "Set with Ctrl- and Ctrl+",
-    "description": "The tooltip of the setting 'Font size'."
-  },
-  "spacestabSetting": {
-    "message": "Tabs to spaces",
-    "description":"The text of the settings 'Tabs to spaces'."
-  },
-  "tabsizeSetting": {
-    "message": "Tab size",
-    "description":"The text of the settings 'Tab size'."
-  },
-  "wraplinesSetting": {
-    "message": "Wrap lines",
-    "description":"The text of the settings 'Wrap lines'."
-  },
-  "linenumbersSetting": {
-    "message": "Line numbers",
-    "description":"The text of the settings 'Line numbers'."
-  },
-  "smartindentSetting": {
-    "message": "Smart indent",
-    "description":"The text of the settings 'Smart indent'."
-  },
-  "themeSetting": {
-    "message": "Theme",
-    "description": "The text of the settings 'Theme'."
-  },
-  "analyticsSetting": {
-    "message": "Send statistics",
-    "description": "The label for the checkbox in settings tab that turns on Analytics."
-  },
-  "analyticsTooltip": {
-    "message": "Automatically send usage statistics",
-    "description": "The tooltip for send statistics checkbox."
-  },
-  "alwaysOnTopSetting": {
-    "message": "Always on top",
-    "description": "The label for the checkbox in settings tab that sets the window always on top."
-  },
-  "DefaultThemeOption": {
-    "message": "Default",
-    "description":"The text of the default Option Theme."
-  },
-  "LightThemeOption": {
-    "message": "Light",
-    "description":"The text of the light Option Theme."
-  },
-  "DarkThemeOption": {
-    "message": "Dark",
-    "description":"The text of the dark Option Theme."
-  },
-  "closeSettings": {
-    "message": "Back",
-    "description":"The text to close the settings Menu."
-  },
-  "openSidebarButton": {
-    "message": "Open sidebar",
-    "description":"The button text to open the sidebar."
-  },
-  "closeSidebarButton": {
-    "message": "Close sidebar",
-    "description":"The button text to close the sidebar."
-  },
-  "searchButton": {
-    "message": "Search",
-    "description":"The button text to search."
-  },
-  "searchCounting": {
-    "message": "$searchIndex$ of $searchCount$",
-    "description":"The text showing search counting.",
-    "placeholders": {
-      "searchIndex": {
-        "content": "$1",
-        "example": "Search index"
-      },
-      "searchCount": {
-        "content": "$2",
-        "example": "Search count"
+    "appDesc": {
+      "message": "A text editor for ChromeOS and Chrome.",
+      "description":"The description of the application, displayed in the web store."
+    },
+    "fileMenuNew": {
+      "message": "New",
+      "description":"The text of the File Menu 'New'."
+    },
+    "fileMenuOpen": {
+      "message": "Open",
+      "description":"The text of the File Menu 'Open'."
+    },
+    "fileMenuSave": {
+      "message": "Save",
+      "description":"The text of the File Menu 'Save'."
+    },
+    "fileMenuSaveas": {
+      "message": "Save as",
+      "description":"The text of the File Menu 'Save as'."
+    },
+    "menuOpenSettings": {
+      "message": "Settings",
+      "description":"The text of the Menu to open settings'."
+    },
+    "menuSettings": {
+      "message": "Settings",
+      "description":"The text of the Menu 'Settings'."
+    },
+    "fontsizeSetting": {
+      "message": "Font size",
+      "description":"The text of the settings 'Font size'."
+    },
+    "fontsizeTooltip": {
+      "message": "Set with Ctrl- and Ctrl+",
+      "description": "The tooltip of the setting 'Font size'."
+    },
+    "spacestabSetting": {
+      "message": "Tabs to spaces",
+      "description":"The text of the settings 'Tabs to spaces'."
+    },
+    "tabsizeSetting": {
+      "message": "Tab size",
+      "description":"The text of the settings 'Tab size'."
+    },
+    "wraplinesSetting": {
+      "message": "Wrap lines",
+      "description":"The text of the settings 'Wrap lines'."
+    },
+    "linenumbersSetting": {
+      "message": "Line numbers",
+      "description":"The text of the settings 'Line numbers'."
+    },
+    "smartindentSetting": {
+      "message": "Smart indent",
+      "description":"The text of the settings 'Smart indent'."
+    },
+    "themeSetting": {
+      "message": "Theme",
+      "description": "The text of the settings 'Theme'."
+    },
+    "analyticsSetting": {
+      "message": "Send statistics",
+      "description": "The label for the checkbox in settings tab that turns on Analytics."
+    },
+    "analyticsTooltip": {
+      "message": "Automatically send usage statistics",
+      "description": "The tooltip for send statistics checkbox."
+    },
+    "alwaysOnTopSetting": {
+      "message": "Always on top",
+      "description": "The label for the checkbox in settings tab that sets the window always on top."
+    },
+    "DefaultThemeOption": {
+      "message": "Default",
+      "description":"The text of the default Option Theme."
+    },
+    "LightThemeOption": {
+      "message": "Light",
+      "description":"The text of the light Option Theme."
+    },
+    "DarkThemeOption": {
+      "message": "Dark",
+      "description":"The text of the dark Option Theme."
+    },
+    "closeSettings": {
+      "message": "Back",
+      "description":"The text to close the settings Menu."
+    },
+    "openSidebarButton": {
+      "message": "Open sidebar",
+      "description":"The button text to open the sidebar."
+    },
+    "closeSidebarButton": {
+      "message": "Close sidebar",
+      "description":"The button text to close the sidebar."
+    },
+    "searchButton": {
+      "message": "Search",
+      "description":"The button text to search."
+    },
+    "searchCounting": {
+      "message": "$searchIndex$ of $searchCount$",
+      "description":"The text showing search counting.",
+      "placeholders": {
+        "searchIndex": {
+          "content": "$1",
+          "example": "Search index"
+        },
+        "searchCount": {
+          "content": "$2",
+          "example": "Search count"
+        }
       }
+    },
+    "searchNextButton": {
+      "message": "Next",
+      "description":"The button text to search the next result."
+    },
+    "searchPreviousButton": {
+      "message": "Previous",
+      "description":"The button text to search the previous result."
+    },
+    "errorTitle": {
+      "message": "Error",
+      "description":"The error text displayed in the filename title bar."
+    },
+    "loadingTitle": {
+      "message": "Loading...",
+      "description":"The text displayed in the filename title bar when file loads."
+    },
+    "minimizeButton": {
+      "message": "Minimize",
+      "description":"The button text to minimize the app window."
+    },
+    "maximizeButton": {
+      "message": "Maximize",
+      "description":"The button text to maximize the app window."
+    },
+    "restoreButton": {
+      "message": "Restore",
+      "description":"The button text to restore the app window."
+    },
+    "closeButton": {
+      "message": "Quit",
+      "description":"The button text to close the app window."
+    },
+    "yesDialogButton": {
+      "message": "Yes",
+      "description": "The button text which says 'Yes'."
+    },
+    "noDialogButton": {
+      "message": "No",
+      "description":"The button text which says 'No'."
+    },
+    "cancelDialogButton": {
+      "message": "Cancel",
+      "description":"The button text which says 'Cancel'."
+x    },
+    "saveFilePrompt": {
+      "message": "Do you want to save the file before closing?",
+      "description":"The text which prompts user if he wants to save file before closing it."
+    },
+    "okDialogButton": {
+      "message": "OK",
+      "description":"The button text which says 'OK'."
     }
-  },
-  "searchNextButton": {
-    "message": "Next",
-    "description":"The button text to search the next result."
-  },
-  "searchPreviousButton": {
-    "message": "Previous",
-    "description":"The button text to search the previous result."
-  },
-  "errorTitle": {
-    "message": "Error",
-    "description":"The error text displayed in the filename title bar."
-  },
-  "loadingTitle": {
-    "message": "Loading...",
-    "description":"The text displayed in the filename title bar when file loads."
-  },
-  "minimizeButton": {
-    "message": "Minimize",
-    "description":"The button text to minimize the app window."
-  },
-  "maximizeButton": {
-    "message": "Maximize",
-    "description":"The button text to maximize the app window."
-  },
-  "restoreButton": {
-    "message": "Restore",
-    "description":"The button text to restore the app window."
-  },
-  "closeButton": {
-    "message": "Quit",
-    "description":"The button text to close the app window."
-  },
-  "yesDialogButton": {
-    "message": "Yes",
-    "description": "The button text which says 'Yes'."
-  },
-  "noDialogButton": {
-    "message": "No",
-    "description":"The button text which says 'No'."
-  },
-  "cancelDialogButton": {
-    "message": "Cancel",
-    "description":"The button text which says 'Cancel'."
-  },
-  "saveFilePrompt": {
-    "message": "Do you want to save the file before closing?",
-    "description":"The text which prompts user if he wants to save file before closing it."
-  },
-  "okDialogButton": {
-    "message": "OK",
-    "description":"The button text which says 'OK'."
-  }
-};</script>
+  };
+</script>
   <!---->
   <link href="css/app.css" rel="stylesheet">
   <link href="css/print.css" rel="stylesheet" media="print">
@@ -374,14 +368,13 @@
   <script src="js/controllers/settings.js" type="text/javascript"></script>
   <script src="js/controllers/window.js" type="text/javascript"></script>
   <!-- /JS -->
-  <script>//$(document).ready(()=>{('#file-menu-new').click()})
-//for some reason, I need to set a timeout for this to work...
-    setTimeout(()=>{
+  <script>
+    setTimeout(() => {
       if (!textApp.tabs_.tabs_.length) document.getElementById('file-menu-new').click();
-      document.querySelector('#fileLoader').addEventListener('change', function(e){
-        for (let file of this.files) textApp.tabs_.readFileToNewTab_(file,file);
+      document.querySelector('#fileLoader').addEventListener('change', function(e) {
+        for (let file of this.files) textApp.tabs_.readFileToNewTab_(file, file);
       });
-      $('#file-menu-save').click(function(e){//delete elem: link.parentNode.removeChild(link)//also remove default save buttons...
+      $('#file-menu-save').click(function(e) {
         let link = document.createElement('a');
         link.href = URL.createObjectURL(textApp.tabs_.getCurrentTab().entry_);
         link.download = 'download';
